@@ -9,7 +9,7 @@ const pool = mysql.createPool({
 
 export async function getUserByName(name: string) {
   // SQL injection via string interpolation
-  const sql = `SELECT * FROM users WHERE name = '${name}'`;
-  const [rows] = await pool.query(sql);
+  const sql = "SELECT * FROM users WHERE name = ?";
+  const [rows] = await pool.query(sql, [name]);
   return rows;
 }

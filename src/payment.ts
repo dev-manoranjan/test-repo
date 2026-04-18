@@ -1,8 +1,7 @@
-// src/payment.ts
+// src/payment.ts — FIXED version
 import Stripe from "stripe";
 
-// Hardcoded live Stripe key
-const stripe = new Stripe("sk_live_abc123hardcodedkey", {
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2023-10-16",
 });
 
